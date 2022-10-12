@@ -12,18 +12,18 @@
     <div id="card" class="container">
       <p>To Do List</p>
       <div class="container">
-        <form action="">
+        <form action="" id="task-form">
           <div>
-            <label for="new-task">Enter a to-do:</label>
+            <label for="new-task">Enter a task:</label>
             <input type="text" id="new-task" name="new-task" />
+            <button type="submit" form="task-form">Add To-Do</button>
           </div>
-          <input type="button" />
         </form>
       </div>
       <div class="container">
         <ul id="task-list"></ul>
       </div>
-      <input type="submit" id="clear-all" class="btn" value="Clear all" />
+      <button id="clear-all" class="btn">Clear All</button>
     </div>
   </body>
 </html>
