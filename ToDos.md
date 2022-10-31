@@ -1,6 +1,6 @@
 # MVP
 
-- [] Text input form field
+- [x] Text input form field
 - [] Individual to dos can be deleted
 - [] Clicking on item will strikethrough. Clicking again will undo strikethrough
 - [] All texts can be cleared by single button
