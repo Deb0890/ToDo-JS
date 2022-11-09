@@ -6,3 +6,4 @@
 - [] All texts can be cleared by single button
 - [] No more than 10 items can be added to list (include warning message)
 - [] Tasks are stored locally (they remain on page refresh)
+- []
