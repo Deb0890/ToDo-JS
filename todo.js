@@ -41,7 +41,7 @@ function addTask(e) {
 function deleteTask(e) {
   if (e.target.parentElement.classList.contains("list-item")) {
     if (confirm("Are You Sure?")) {
-      e.target.parentElement.parentElement.remove();
+      e.target.parentElement.remove();
       console.log(e);
     }
   }
