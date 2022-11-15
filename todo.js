@@ -1,6 +1,7 @@
 const taskList = document.querySelector("#task-list"); //ul
 const form = document.querySelector("#task-form"); //form
 const newTask = document.querySelector("#new-task"); //form input
+// const li = document.createElement("li");
 
 form.addEventListener("submit", addTask);
 taskList.addEventListener("click", deleteTask);
@@ -9,7 +10,7 @@ function addTask(e) {
   e.preventDefault();
 
   // create li element
-  const li = document.createElement("li");
+  li = document.createElement("li");
 
   // give li a class
   li.className = "list-item";
@@ -36,13 +37,22 @@ function addTask(e) {
 
   //clear input field
   newTask.value = "";
+
+  // add event listener
+  li.addEventListener("click", strikethrough);
+  // Why does this work?? li is scoped locally but the strikethrough function seems to have access??
+}
+
+// Strikethrough list item when li is clicked.
+function strikethrough(e) {
+  li.style.textDecoration = "line-through";
 }
 
 function deleteTask(e) {
   if (e.target.parentElement.classList.contains("list-item")) {
     if (confirm("Are You Sure?")) {
       e.target.parentElement.remove();
-      console.log(e);
+      // console.log(e);
     }
   }
 }
