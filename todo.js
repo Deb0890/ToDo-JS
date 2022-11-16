@@ -1,7 +1,6 @@
 const taskList = document.querySelector("#task-list"); //ul
 const form = document.querySelector("#task-form"); //form
 const newTask = document.querySelector("#new-task"); //form input
-// const li = document.createElement("li");
 
 form.addEventListener("submit", addTask);
 taskList.addEventListener("click", deleteTask);
@@ -19,21 +18,26 @@ function addTask(e) {
   const textnode = document.createTextNode(newTask.value);
   li.appendChild(textnode);
 
-  // append li to ul with condition of empty input field
-
   // include a delete button
   const link = document.createElement("span");
   link.textContent = "x";
   link.className = "delete-button";
   li.appendChild(link);
 
+  // append li to ul with condition of empty input field
   if (newTask.value === "") {
     alert("Please add a task");
+  } else if (taskList.childElementCount == 11) {
+    alert(
+      "You cannot add more than 10 items! Please delete an item to continue"
+    );
   } else {
     taskList.appendChild(li);
   }
 
   //Note that the above conditional statement solves problem of empty input field appending to list, but wondering if it could be written better or if scope would be an issue here
+
+  // tenItemsMax(); here I tried to create a separate function for checking if the list has 10 items but ended up implementing the logic within the conditional statement already present
 
   //clear input field
   newTask.value = "";
@@ -47,6 +51,14 @@ function addTask(e) {
 function strikethrough(e) {
   li.style.textDecoration = "line-through";
 }
+
+// function tenItemsMax() {
+//   if (taskList.childElementCount == 11) {
+//     alert(
+//       "You cannot add more than 10 items! Please delete an item to continue"
+//     );
+//   }
+// }
 
 function deleteTask(e) {
   if (e.target.parentElement.classList.contains("list-item")) {
