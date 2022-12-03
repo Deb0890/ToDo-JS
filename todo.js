@@ -1,9 +1,11 @@
 const taskList = document.querySelector("#task-list"); //ul
 const form = document.querySelector("#task-form"); //form
 const newTask = document.querySelector("#new-task"); //form input
+const clearAll = document.querySelector("#clear-all"); //clear all the tasks
 
 form.addEventListener("submit", addTask);
 taskList.addEventListener("click", deleteTask);
+clearAll.addEventListener("click", deleteAllTasks);
 
 function addTask(e) {
   e.preventDefault();
@@ -62,9 +64,15 @@ function strikethrough(e) {
 
 function deleteTask(e) {
   if (e.target.parentElement.classList.contains("list-item")) {
-    if (confirm("Are You Sure?")) {
-      e.target.parentElement.remove();
-      // console.log(e);
-    }
+    // if (confirm("Are You Sure?")) {
+    e.target.parentElement.remove();
+    // console.log(e);
+    // }
+  }
+}
+function deleteAllTasks(e) {
+  console.log(e);
+  if (confirm("Are you sure?")) {
+    taskList.innerHTML = "";
   }
 }
