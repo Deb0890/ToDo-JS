@@ -12,7 +12,7 @@ clearAll.addEventListener("click", deleteAllTasks);
 function addTask(e) {
   e.preventDefault();
 
-  if (maxItemsExceeded() || newTask == "") return;
+  // if (maxItemsExceeded() || newTask == "") return;
 
   // create li element
   li = document.createElement("li");
@@ -38,11 +38,14 @@ function addTask(e) {
   // The input field is blank.
   // Tie this to the button being enabled.
 
-  taskList.appendChild(li);
-
   li.addEventListener("click", strikethrough);
   // Why does this work?? li is scoped locally but the strikethrough function seems to have access??
 
+  if (newTask.value === "") {
+    alert("Please add a task");
+  } else {
+    taskList.appendChild(li);
+  }
   //clear input field
   newTask.value = "";
 }
